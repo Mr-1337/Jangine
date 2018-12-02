@@ -17,9 +17,9 @@ namespace Jangine
 	class GameEngine
 	{
 	public:
-		JAN_API GameEngine(std::string title);
-		JAN_API virtual ~GameEngine();
-		JAN_API void Run();
+		GameEngine(std::string title);
+		virtual ~GameEngine();
+		void Run();
 
 		template <class firstState, class... Ts>
 		void SetFirstState(Ts... ts)

@@ -10,7 +10,7 @@ namespace Jangine
 {
 
 	//Represents a drawable image
-	class JAN_API Sprite
+	class Sprite
 	{
 	public:
 		Sprite(SDL_Renderer* renderer);

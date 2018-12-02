@@ -66,23 +66,23 @@ namespace Jangine
 				throw std::runtime_error("Logger ostream pointer was null! Make sure you set it before trying to log!");
 			}
 		}
-		JAN_API void LogErrorSDL(const std::string & message)
+		void LogErrorSDL(const std::string & message)
 		{
 			Log(message + ": " + SDL_GetError(), LOG_ERROR, LEVEL_CRITICAL);
 		}
-		JAN_API void LogErrorIMG(const std::string & message)
+		void LogErrorIMG(const std::string & message)
 		{
 			Log(message + ": " + IMG_GetError(), LOG_ERROR, LEVEL_CRITICAL);
 		}
-		JAN_API void LogErrorMIX(const std::string & message)
+		void LogErrorMIX(const std::string & message)
 		{
 			Log(message + ": " + Mix_GetError(), LOG_ERROR, LEVEL_CRITICAL);
 		}
-		JAN_API void LogErrorTTF(const std::string & message)
+		void LogErrorTTF(const std::string & message)
 		{
 			Log(message + ": " + TTF_GetError(), LOG_ERROR, LEVEL_CRITICAL);
 		}
-		JAN_API void LogErrorNET(const std::string & message)
+		void LogErrorNET(const std::string & message)
 		{
 			Log(message + ": " + SDLNet_GetError(), LOG_ERROR, LEVEL_CRITICAL);
 		}

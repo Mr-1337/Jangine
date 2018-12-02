@@ -15,7 +15,7 @@ namespace Jangine
 	public:
 		StateMachine();
 		~StateMachine();
-		JAN_API void setState(std::shared_ptr<GameState> newState);
+		void setState(std::shared_ptr<GameState> newState);
 		void update();
 		void draw();
 		void eventHandler();

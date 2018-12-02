@@ -16,13 +16,13 @@ namespace Jangine
 		public std::enable_shared_from_this<GameState>
 	{
 	public:
-		JAN_API GameState();
-		JAN_API virtual ~GameState();
-		JAN_API virtual void update() = 0;
-		JAN_API virtual void draw() = 0;
-		JAN_API virtual void revealed();
-		JAN_API virtual void eventHandler();
-		JAN_API inline bool wantsToQuit() { return m_quit; };
+		GameState();
+		virtual ~GameState();
+		virtual void update() = 0;
+		virtual void draw() = 0;
+		virtual void revealed();
+		virtual void eventHandler();
+		inline bool wantsToQuit() { return m_quit; };
 
 		std::shared_ptr<GameState> getNextState();
 

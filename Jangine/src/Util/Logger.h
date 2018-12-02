@@ -22,18 +22,18 @@ namespace Jangine
 			LEVEL_CRITICAL
 		};
 
-		JAN_API void SetOutputStream(std::ostream& output);
-		JAN_API void SetLogLevel(LogLevel level);
+		void SetOutputStream(std::ostream& output);
+		void SetLogLevel(LogLevel level);
 
-		JAN_API void Log(const std::string& message);
-		JAN_API void Log(const std::string& message, LogCategory category, LogLevel level);
-		JAN_API void LogError(const std::string& message);
+		void Log(const std::string& message);
+		void Log(const std::string& message, LogCategory category, LogLevel level);
+		void LogError(const std::string& message);
 
-		JAN_API void LogErrorSDL(const std::string& message);
-		JAN_API void LogErrorIMG(const std::string& message);
-		JAN_API void LogErrorMIX(const std::string& message);
-		JAN_API void LogErrorTTF(const std::string& message);
-		JAN_API void LogErrorNET(const std::string& message);
+		void LogErrorSDL(const std::string& message);
+		void LogErrorIMG(const std::string& message);
+		void LogErrorMIX(const std::string& message);
+		void LogErrorTTF(const std::string& message);
+		void LogErrorNET(const std::string& message);
 
 	}
 }
