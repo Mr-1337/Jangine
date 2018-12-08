@@ -9,7 +9,7 @@ namespace Jangine
 		:public UIElement
 	{
 	public:
-		ButtonBase(SDL_Renderer* renderer);
+		ButtonBase();
 		std::function<void()> onClick;
 		virtual ~ButtonBase() = 0;
 

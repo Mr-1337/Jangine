@@ -9,7 +9,7 @@ namespace Jangine
 		public Sprite
 	{
 	public:
-		AnimatedSprite(SDL_Renderer* renderer, SDL_Rect rect);
+		AnimatedSprite(SDL_Rect rect);
 		~AnimatedSprite();
 		void load(std::string path);
 		void draw();

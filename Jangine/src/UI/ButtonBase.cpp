@@ -4,10 +4,10 @@
 namespace Jangine
 {
 
-	ButtonBase::ButtonBase(SDL_Renderer* renderer)
-		:UIElement(renderer), m_mDown(false)
+	ButtonBase::ButtonBase()
+		:m_mDown(false)
 	{
-		onClick = [] { Logger::LogError("HEY IDIOT THIS BUTTON ISN'T BOUND TO ANYTHING"); };
+		onClick = [] { Logger::LogError("HEY IDIOT THIS BUTTON ISN'T BOUND TO ANYTHING!"); };
 	}
 
 	bool ButtonBase::mouseInBounds()

@@ -3,8 +3,8 @@
 namespace Jangine
 {
 
-	Text::Text(SDL_Renderer* &renderer, std::string message)
-		:Sprite(renderer), m_string(message)
+	Text::Text(std::string message)
+		:m_string(message)
 	{
 
 	}

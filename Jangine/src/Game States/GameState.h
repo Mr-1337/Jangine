@@ -7,11 +7,14 @@
 #include "../Core/Platform.h"
 #include "../Util/Logger.h"
 
-//Abstract type for different GameStates
 
 namespace Jangine
 {
-
+	/*
+	A GameState is some mode that the game can be in. It is a way to allow radically different behavior within the same framework.
+	You can define your own GameState by inheriting from this class. To switch states, assign the nextState pointer to a new GameState
+	of your chosing. It can be contructed with parameters if need be.
+	*/
 	class GameState :
 		public std::enable_shared_from_this<GameState>
 	{

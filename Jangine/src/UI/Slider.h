@@ -9,7 +9,7 @@ namespace Jangine
 		public ButtonBase
 	{
 	public:
-		Slider(SDL_Renderer* renderer);
+		Slider();
 		void onHover() override;
 		void update() override;
 		void draw() override;

@@ -3,8 +3,8 @@
 namespace Jangine
 {
 
-	AnimatedSprite::AnimatedSprite(SDL_Renderer* renderer, SDL_Rect rect)
-		:Sprite(renderer), frame(0), frameTime(1000), drawRegion(rect)
+	AnimatedSprite::AnimatedSprite(SDL_Rect rect)
+		:frame(0), frameTime(1000), drawRegion(rect)
 	{
 
 	}

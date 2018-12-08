@@ -5,6 +5,7 @@
 #include <SDL_image.h>
 #include <string>
 #include "../Core/Platform.h"
+#include "../Core/Globals.h"
 
 namespace Jangine
 {
@@ -13,7 +14,7 @@ namespace Jangine
 	class Sprite
 	{
 	public:
-		Sprite(SDL_Renderer* renderer);
+		Sprite();
 		~Sprite();
 		virtual void load(const std::string& path);
 		virtual void draw();
@@ -21,6 +22,7 @@ namespace Jangine
 		void setX(int x);
 		void setY(int y);
 		void setAlpha(int alpha);
+		void scale(double scaleFactor);
 		void setWidthHeight(int w, int h);
 		void getWidthHeight(int* w, int* h);
 		void rotate(double angle, SDL_Point* pivot);
@@ -33,9 +35,9 @@ namespace Jangine
 		SDL_Texture* m_texture;
 		SDL_Renderer* m_renderer;
 		SDL_Rect m_dstRect;
+		SDL_RendererFlip m_flip;
 		double angle;
 		SDL_Point pivot;
-		SDL_RendererFlip m_flip;
 	};
 
 }

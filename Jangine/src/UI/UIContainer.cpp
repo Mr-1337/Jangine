@@ -1,10 +1,11 @@
 #include "UIContainer.h"
+#include "../Core/Globals.h"
 
 namespace Jangine
 {
 
-	UIContainer::UIContainer(SDL_Renderer* renderer)
-		:m_renderer(renderer)
+	UIContainer::UIContainer()
+		:m_renderer(SDL_GetRenderer(Globals::getWindow()))
 	{
 	}
 

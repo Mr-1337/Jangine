@@ -12,7 +12,7 @@ namespace Jangine
 	class UIContainer
 	{
 	public:
-		UIContainer(SDL_Renderer* renderer);
+		UIContainer();
 		virtual ~UIContainer() = 0;
 
 		virtual void update();

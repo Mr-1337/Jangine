@@ -10,7 +10,7 @@ namespace Jangine
 	class UIElement
 	{
 	public:
-		UIElement(SDL_Renderer* renderer);
+		UIElement();
 		virtual ~UIElement() = 0;
 
 		virtual void draw() = 0;

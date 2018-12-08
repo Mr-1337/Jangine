@@ -5,10 +5,10 @@
 namespace Jangine
 {
 
-	Sprite::Sprite(SDL_Renderer* renderer)
-		:m_renderer(renderer), m_flip(SDL_FLIP_NONE), angle(0)
+	Sprite::Sprite()
+		:m_renderer(SDL_GetRenderer(Globals::getWindow())), m_flip(SDL_FLIP_NONE), angle(0)
 	{
-		if (renderer != nullptr)
+		if (m_renderer != nullptr)
 		{
 			Logger::Log("Sprite Created!", Jangine::Logger::LOG_INFO, Jangine::Logger::LEVEL_TRACE);
 		}
@@ -54,6 +54,13 @@ namespace Jangine
 	SDL_Rect* Sprite::getRect()
 	{
 		return &m_dstRect;
+	}
+
+	void Sprite::scale(double scaleFactor)
+	{
+		int tw, th;
+		getWidthHeight(&tw, &th);
+		setWidthHeight(tw * scaleFactor, th * scaleFactor);
 	}
 
 	void Sprite::draw()

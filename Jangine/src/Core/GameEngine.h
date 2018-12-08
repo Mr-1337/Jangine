@@ -21,6 +21,7 @@ namespace Jangine
 		virtual ~GameEngine();
 		void Run();
 
+		//Set the first gamestate
 		template <class firstState, class... Ts>
 		void SetFirstState(Ts... ts)
 		{

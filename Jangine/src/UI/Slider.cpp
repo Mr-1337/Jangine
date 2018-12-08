@@ -4,10 +4,9 @@
 namespace Jangine
 {
 
-	Slider::Slider(SDL_Renderer* renderer) :
-		ButtonBase(renderer)
+	Slider::Slider()
 	{
-		m_sprite = new Sprite(renderer);
+		m_sprite = new Sprite();
 		m_sprite->load("Assets/Graphics/slider.png");
 		wedge.w = 10;
 		wedge.h = 60;

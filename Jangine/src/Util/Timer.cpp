@@ -1,37 +1,38 @@
 #include "Timer.h"
-
-
-
-Timer::Timer()
-{
-}
-
-void Timer::start()
-{
-	ticks = SDL_GetTicks();
-}
-
-void Timer::pause()
+namespace Jangine
 {
 
-}
+	Timer::Timer()
+	{
+	}
 
-void Timer::stop()
-{
-	ticks = 0;
-}
+	void Timer::start()
+	{
+		ticks = SDL_GetTicks();
+	}
 
-int Timer::getTicks()
-{
-	return (SDL_GetTicks() - ticks);
-}
+	void Timer::pause()
+	{
 
-Timer::~Timer()
-{
-}
+	}
 
-void Timer::restart()
-{
-	stop();
-	start();
+	void Timer::stop()
+	{
+		ticks = 0;
+	}
+
+	int Timer::getTicks()
+	{
+		return (SDL_GetTicks() - ticks);
+	}
+
+	Timer::~Timer()
+	{
+	}
+
+	void Timer::restart()
+	{
+		stop();
+		start();
+	}
 }

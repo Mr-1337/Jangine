@@ -1,10 +1,11 @@
 #include "UIElement.h"
+#include "../Core/Globals.h"
 
 namespace Jangine
 {
 
-	UIElement::UIElement(SDL_Renderer* renderer)
-		:m_renderer(renderer)
+	UIElement::UIElement():
+		m_renderer(SDL_GetRenderer(Globals::getWindow()))
 	{
 	}
 

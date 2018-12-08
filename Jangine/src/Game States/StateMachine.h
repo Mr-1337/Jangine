@@ -5,11 +5,11 @@
 #include "GameState.h"
 #include "../Core/Platform.h"
 
-//Houses all the different game states, facilitates their usage, and contains logic for switching
+
 
 namespace Jangine
 {
-
+	//Houses all the different game states, facilitates their usage, and contains logic for switching
 	class StateMachine
 	{
 	public:
