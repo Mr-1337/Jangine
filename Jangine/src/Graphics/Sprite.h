@@ -1,11 +1,12 @@
 #pragma once
 
 #include <iostream>
-#include <SDL.h>
-#include <SDL_image.h>
+#include <SDL_render.h>
 #include <string>
 #include "../Core/Platform.h"
 #include "../Core/Globals.h"
+#include "TextureManager.h"
+#include "Texture.h"
 
 namespace Jangine
 {
@@ -32,7 +33,7 @@ namespace Jangine
 	private:
 
 	protected:
-		SDL_Texture* m_texture;
+		Texture* m_texture;
 		SDL_Renderer* m_renderer;
 		SDL_Rect m_dstRect;
 		SDL_RendererFlip m_flip;

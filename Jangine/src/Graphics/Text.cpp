@@ -25,25 +25,25 @@ namespace Jangine
 		m_dstRect.h = tempSurface->h;
 		m_dstRect.x = 0;
 		m_dstRect.y = 0;
-		m_texture = SDL_CreateTextureFromSurface(m_renderer, tempSurface);
+		m_texture = new Texture(tempSurface);
 		SDL_FreeSurface(tempSurface);
 	}
 
 
 	void Text::draw()
 	{
-		SDL_RenderCopy(m_renderer, m_texture, NULL, &m_dstRect);
+		SDL_RenderCopy(m_renderer, m_texture->GetRaw(), NULL, &m_dstRect);
 	}
 
 
 	void Text::updateText(std::string text)
 	{
-		SDL_DestroyTexture(m_texture);
+		delete m_texture;
 		m_string = text;
 		tempSurface = TTF_RenderText_Blended(font, m_string.c_str(), fontColor);
 		m_dstRect.w = tempSurface->w;
 		m_dstRect.h = tempSurface->h;
-		m_texture = SDL_CreateTextureFromSurface(m_renderer, tempSurface);
+		m_texture = new Texture(tempSurface);
 		SDL_FreeSurface(tempSurface);
 	}
 

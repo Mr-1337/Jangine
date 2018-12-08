@@ -34,6 +34,8 @@
     <ClCompile Include="src\Util\Timer.cpp" />
     <ClCompile Include="src\UI\UIContainer.cpp" />
     <ClCompile Include="src\UI\UIElement.cpp" />
+    <ClCompile Include="src\Graphics\TextureManager.cpp" />
+    <ClCompile Include="src\Graphics\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Core\Globals.h" />
@@ -53,6 +55,8 @@
     <ClInclude Include="src\Util\Timer.h" />
     <ClInclude Include="src\UI\UIContainer.h" />
     <ClInclude Include="src\UI\UIElement.h" />
+    <ClInclude Include="src\Graphics\TextureManager.h" />
+    <ClInclude Include="src\Graphics\Texture.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{f29718ff-46be-4619-b465-d19664deb485}</ProjectGuid>

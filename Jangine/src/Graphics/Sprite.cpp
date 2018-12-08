@@ -20,7 +20,6 @@ namespace Jangine
 
 	Sprite::~Sprite()
 	{
-		SDL_DestroyTexture(m_texture);
 		Logger::Log("Sprite Destroyed!", Jangine::Logger::LOG_INFO, Jangine::Logger::LEVEL_TRACE);
 	}
 
@@ -67,7 +66,7 @@ namespace Jangine
 	{
 		if (m_renderer != nullptr && m_texture != nullptr)
 		{
-			SDL_RenderCopyEx(m_renderer, m_texture, nullptr, &m_dstRect, angle, &pivot, m_flip);
+			SDL_RenderCopyEx(m_renderer, m_texture->GetRaw(), nullptr, &m_dstRect, angle, &pivot, m_flip);
 		}
 		else
 		{
@@ -81,7 +80,7 @@ namespace Jangine
 			alpha = 0;
 		if (alpha > 255)
 			alpha = 255;
-		if (SDL_SetTextureAlphaMod(m_texture, alpha) != 0)
+		if (SDL_SetTextureAlphaMod(m_texture->GetRaw(), alpha) != 0)
 			std::cout << SDL_GetError() << std::endl;
 	}
 
@@ -91,7 +90,7 @@ namespace Jangine
 		{
 			m_dstRect.w = clip.w;
 			m_dstRect.h = clip.h;
-			SDL_RenderCopy(m_renderer, m_texture, &clip, &m_dstRect);
+			SDL_RenderCopy(m_renderer, m_texture->GetRaw(), &clip, &m_dstRect);
 		}
 		else
 		{
@@ -111,35 +110,18 @@ namespace Jangine
 
 	void Sprite::load(const std::string& path)
 	{
-		SDL_Surface* tempSurface;
-		tempSurface = IMG_Load(path.c_str());
-		if (tempSurface == nullptr)
-		{
-			Logger::LogErrorIMG("Error loading image");
-		}
-		else
-		{
-			if (m_renderer == nullptr)
-			{
-				Logger::LogError("Renderer is null");
-			}
-			else
-			{
-				m_texture = SDL_CreateTextureFromSurface(m_renderer, tempSurface);
 
-				m_dstRect.x = 0;
-				m_dstRect.y = 0;
-				m_dstRect.w = tempSurface->w;
-				m_dstRect.h = tempSurface->h;
-				pivot.x = m_dstRect.x + m_dstRect.w / 2;
-				pivot.y = m_dstRect.y + m_dstRect.h / 2;
-				std::stringstream s;
-				s << "loaded texture " << path << " with dimensions of " << m_dstRect.w << " x " << m_dstRect.h << std::endl;
-				using namespace Logger;
-				Log(s.str(), LOG_INFO, LEVEL_TRACE);
-			}
-		}
-		SDL_FreeSurface(tempSurface);
+		m_texture = TextureManager::GetTexture(path);
+
+		m_dstRect.x = 0;
+		m_dstRect.y = 0;
+		m_dstRect.w = m_texture->GetWidth();
+		m_dstRect.h = m_texture->GetHeight();
+		pivot.x = m_dstRect.x + m_dstRect.w / 2;
+		pivot.y = m_dstRect.y + m_dstRect.h / 2;
+		using namespace Logger;
+		Log("Loaded Sprite", LOG_INFO, LEVEL_TRACE);
+
 	}
 
 }
