@@ -27,14 +27,14 @@ MainMenu::~MainMenu()
 }
 
 
-void MainMenu::update()
+void MainMenu::update(float timestep)
 {
 	int x, y;
 	auto b = SDL_GetMouseState(&x, &y);
 	double angleRad = std::atan2(y - pY, x - pX);
 	arms.rotate(angleRad * 180 / M_PI, &pivot);
-	yVel+=0.6;
-	pY += yVel;
+	yVel += 980.0f * timestep;
+	pY += yVel * timestep;
 
 	static bool lDown = false;
 
@@ -67,11 +67,11 @@ void MainMenu::update()
 
 	const Uint8* keys = SDL_GetKeyboardState(nullptr);
 	if (pY == 500 && keys[SDL_SCANCODE_W])
-		yVel = -15;
+		yVel = -800.0f;
 	if (keys[SDL_SCANCODE_D] && pX < 700)
-		pX+=5;
+		pX += 300.0f * timestep;
 	if (keys[SDL_SCANCODE_A] && pX > 0)
-		pX-=5;
+		pX -= 300.0f * timestep;
 
 	player.setX(pX);
 	player.setY(pY);
@@ -88,7 +88,7 @@ void MainMenu::update()
 
 	for (auto s : shots)
 	{
-		s->update();
+		s->update(timestep);
 
 	}
 	if (!enemies.empty())
@@ -97,7 +97,7 @@ void MainMenu::update()
 		{
 			if (s != nullptr)
 			{
-				s->update();
+				s->update(timestep);
 				if (s->dead)
 				{
 					delete s;

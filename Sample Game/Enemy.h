@@ -12,7 +12,7 @@ class Enemy
 public:
 	Enemy(std::list<Shot*> &shots, SDL_Rect* player);
 	~Enemy();
-	void update();
+	void update(float timestep);
 	void draw();
 	bool dead;
 private:

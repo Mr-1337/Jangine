@@ -12,11 +12,11 @@ Shot::~Shot()
 }
 
 
-void Shot::update()
+void Shot::update(float timestep)
 {
-	x += 5 * std::cos(m_angle);
-	y += 5 * std::sin(m_angle);
-	rotation += 3.3f;
+	x += 300.0f * std::cos(m_angle) * timestep;
+	y += 300.0f * std::sin(m_angle) * timestep;
+	rotation += 210.0f * timestep;
 	SDL_Point point = { 10, 10 };
 	rotate(rotation, &point);
 	setX(x);

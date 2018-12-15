@@ -1,12 +1,13 @@
 #include "StateMachine.h"
 
+
 namespace Jangine
 {
 
 	StateMachine::StateMachine() :
 		m_running(true)
 	{
-
+		frameTime.start();
 	}
 
 	StateMachine::~StateMachine()
@@ -47,7 +48,9 @@ namespace Jangine
 
 	void StateMachine::update()
 	{
-		currentState->update();
+		SDL_Delay(90);
+		currentState->update((float)frameTime.getTicks() / 1000.0f);
+		frameTime.restart();
 	}
 
 }

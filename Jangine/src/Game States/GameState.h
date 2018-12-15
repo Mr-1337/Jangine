@@ -21,7 +21,7 @@ namespace Jangine
 	public:
 		GameState();
 		virtual ~GameState();
-		virtual void update() = 0;
+		virtual void update(float timestep) = 0;
 		virtual void draw() = 0;
 		virtual void revealed();
 		virtual void eventHandler();

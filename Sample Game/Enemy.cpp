@@ -21,7 +21,7 @@ Enemy::Enemy(std::list<Shot*> &shots, SDL_Rect* player) :
 	timer.start();
 }
 
-void Enemy::update()
+void Enemy::update(float timestep)
 {
 	if (timer.getTicks() % 100 == 0)
 	{
@@ -45,17 +45,17 @@ void Enemy::update()
 	switch (dir)
 	{
 	case 0:
-		xVel = 5;
+		xVel = 300.0f;
 		break;
 	case 1:
-		xVel = -5;
+		xVel = -300.0f;
 		break;
 	case 2:
 		xVel = 0;
 		break;
 	}
 
-	x += xVel;
+	x += xVel * timestep;
 
 	if (x > 800)
 		dir = 1;

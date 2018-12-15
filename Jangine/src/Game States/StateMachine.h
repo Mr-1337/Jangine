@@ -4,7 +4,7 @@
 #include <memory>
 #include "GameState.h"
 #include "../Core/Platform.h"
-
+#include "../Util/Timer.h"
 
 
 namespace Jangine
@@ -26,6 +26,7 @@ namespace Jangine
 		std::shared_ptr<GameState> currentState;
 		bool m_running;
 		SDL_Window* m_window;
+		Timer frameTime;
 	};
 
 }

@@ -6,7 +6,7 @@ class Shot :
 public:
 	Shot(double angle, int x, int y, const char* path);
 	~Shot();
-	void update();
+	void update(float timestep);
 private:
 	double m_angle;
 	float x, y, rotation;

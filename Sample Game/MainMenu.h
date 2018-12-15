@@ -14,7 +14,7 @@ public:
 	MainMenu(const std::string& msg, int count);
 	~MainMenu();
 	void draw() override;
-	void update() override;
+	void update(float timestep) override;
 private:
 	Jangine::Sprite player;
 	Jangine::Sprite arms;
