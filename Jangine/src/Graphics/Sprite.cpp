@@ -55,11 +55,11 @@ namespace Jangine
 		return &m_dstRect;
 	}
 
-	void Sprite::scale(double scaleFactor)
+	void Sprite::Scale(double scaleFactor)
 	{
 		int tw, th;
 		getWidthHeight(&tw, &th);
-		setWidthHeight(tw * scaleFactor, th * scaleFactor);
+		setWidthHeight((double)tw * scaleFactor, (double)th * scaleFactor);
 	}
 
 	void Sprite::draw()

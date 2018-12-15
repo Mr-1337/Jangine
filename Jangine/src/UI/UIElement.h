@@ -2,11 +2,11 @@
 #include <SDL.h>
 #include "../Graphics/Sprite.h"
 
-//Represents a singular UI element
+
 
 namespace Jangine
 {
-
+	//Represents a singular UI element
 	class UIElement
 	{
 	public:

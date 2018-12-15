@@ -35,7 +35,7 @@ namespace Jangine
 			else
 			{
 				wedge.x = mx - 5;
-				int volume = static_cast<float>(wedge.x - this->x) / (srcRect->w - 20) * 128.0;
+				int volume = static_cast<int>(static_cast<float>(wedge.x - this->x) / (srcRect->w - 20) * 128.0f);
 				Logger::Log(std::to_string(volume));
 				Mix_VolumeMusic(volume);
 			}

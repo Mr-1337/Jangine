@@ -93,13 +93,16 @@ void MainMenu::update()
 	}
 	if (!enemies.empty())
 	{
-		for (auto s : enemies)
+		for (auto &s : enemies)
 		{
-			s->update();
-			if (s->dead)
+			if (s != nullptr)
 			{
-				enemies.remove(s);
-				delete s;
+				s->update();
+				if (s->dead)
+				{
+					delete s;
+					s = nullptr;
+				}
 			}
 		}
 	}
@@ -121,9 +124,10 @@ void MainMenu::draw()
 	{
 		s->draw();
 	}
-	for (auto &s : enemies)
+	for (auto s : enemies)
 	{
-		s->draw();
+		if(s != nullptr)
+			s->draw();
 	}
 	SDL_RenderPresent(m_renderer);
 }

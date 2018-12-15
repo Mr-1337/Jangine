@@ -11,7 +11,11 @@
 namespace Jangine
 {
 
-	//Represents a drawable image
+	/*
+		Represents a drawable object on the screen. It contains a Texture object
+		which contains the raw image data. Sprites can have transformations applied to them
+		and their position is integral (in pixels).
+	*/
 	class Sprite
 	{
 	public:
@@ -23,7 +27,7 @@ namespace Jangine
 		void setX(int x);
 		void setY(int y);
 		void setAlpha(int alpha);
-		void scale(double scaleFactor);
+		void Scale(double scaleFactor);
 		void setWidthHeight(int w, int h);
 		void getWidthHeight(int* w, int* h);
 		void rotate(double angle, SDL_Point* pivot);

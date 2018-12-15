@@ -12,8 +12,8 @@ Enemy::Enemy(std::list<Shot*> &shots, SDL_Rect* player) :
 	std::string file = "die" + std::to_string(death); 
 	file += ".wav";
 	deathSound = Mix_LoadWAV(file.c_str());
-	m_sprite.scale(0.3);
-	top.scale(0.3);
+	m_sprite.Scale(0.3);
+	top.Scale(0.3);
 	y = 430;
 	x = 300;
 	hp = 500;
