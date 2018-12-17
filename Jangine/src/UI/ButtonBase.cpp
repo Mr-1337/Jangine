@@ -10,6 +10,11 @@ namespace Jangine
 		onClick = [] { Logger::LogError("HEY IDIOT THIS BUTTON ISN'T BOUND TO ANYTHING!"); };
 	}
 
+	ButtonBase::~ButtonBase()
+	{
+
+	}
+
 	bool ButtonBase::mouseInBounds()
 	{
 		SDL_Rect* sRect = m_sprite->getRect();
@@ -23,8 +28,21 @@ namespace Jangine
 		}
 	}
 
-	ButtonBase::~ButtonBase()
+	void ButtonBase::update()
 	{
-	}
+		buttonMask = SDL_GetMouseState(&mX, &mY);
 
+		if (buttonMask == SDL_BUTTON_LMASK)
+		{
+			if (!m_mDown && mouseInBounds())
+			{
+				onClick();
+			}
+			m_mDown = true;
+		}
+		else
+		{
+			m_mDown = false;
+		}
+	}
 }

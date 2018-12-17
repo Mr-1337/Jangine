@@ -13,10 +13,13 @@ namespace Jangine
 		std::function<void()> onClick;
 		virtual ~ButtonBase() = 0;
 
+		virtual void update() override;
+
 	protected:
 
 		virtual void onHover() = 0;
 		bool mouseInBounds();
+		int buttonMask;
 		int mX;
 		int mY;
 
