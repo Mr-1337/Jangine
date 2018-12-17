@@ -48,7 +48,6 @@ namespace Jangine
 
 	void StateMachine::update()
 	{
-		SDL_Delay(90);
 		currentState->update((float)frameTime.getTicks() / 1000.0f);
 		frameTime.restart();
 	}
