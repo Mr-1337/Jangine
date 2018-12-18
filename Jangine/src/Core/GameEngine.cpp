@@ -13,7 +13,6 @@ namespace Jangine
 
 		int width, height;
 		GameSettings::getDimensions(&width, &height);
-		Logger::SetOutputStream(std::cout);
 		Logger::SetLogLevel(Logger::LEVEL_TRACE);
 
 		if (initializeLibs())

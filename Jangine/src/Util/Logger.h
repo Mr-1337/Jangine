@@ -24,6 +24,7 @@ namespace Jangine
 
 		void SetOutputStream(std::ostream& output);
 		void SetLogLevel(LogLevel level);
+		void SetLogTime(bool logtime);
 
 		void Log(const std::string& message);
 		void Log(const std::string& message, LogCategory category, LogLevel level);

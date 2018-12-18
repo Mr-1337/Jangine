@@ -5,7 +5,7 @@ namespace Jangine
 {
 
 	UIElement::UIElement():
-		m_renderer(SDL_GetRenderer(Globals::getWindow()))
+		m_renderer(Globals::getRenderer())
 	{
 	}
 

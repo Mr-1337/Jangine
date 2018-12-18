@@ -7,7 +7,7 @@ namespace Jangine
 {
 
 	Texture::Texture(const std::string& path) :
-		m_renderer(SDL_GetRenderer(Globals::getWindow())), m_width(0), m_height(0)
+		m_renderer(Globals::getRenderer()), m_width(0), m_height(0)
 	{
 		SDL_Surface* tempSurface;
 		tempSurface = IMG_Load(path.c_str());
@@ -36,7 +36,7 @@ namespace Jangine
 	}
 
 	Texture::Texture(SDL_Surface* surface) :
-		m_renderer(SDL_GetRenderer(Globals::getWindow())), m_width(0), m_height(0)
+		m_renderer(Globals::getRenderer()), m_width(0), m_height(0)
 	{
 		if (surface == nullptr)
 		{

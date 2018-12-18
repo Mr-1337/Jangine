@@ -1,5 +1,10 @@
 #include "Logger.h"
+#include "DateTime.h"
 #include <string>
+#include <chrono>
+#include <iomanip>
+#include <ctime>
+#include <sstream>
 #include <SDL.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
@@ -15,16 +20,23 @@ namespace Jangine
 		{
 			std::ostream* output_ = nullptr;
 			LogLevel logLevel = LEVEL_TRACE;
+			bool logTime = false;
 		}
 
 		void SetOutputStream(std::ostream& output)
 		{
 			output_ = &output;
+			Log("Jangine Logger initialized on this output stream!", LOG_INFO, LEVEL_CRITICAL);
 		}
 
 		void SetLogLevel(LogLevel level)
 		{
 			logLevel = level;
+		}
+
+		void SetLogTime(bool logtime)
+		{
+			logTime = logtime;
 		}
 
 		void Log(const std::string& message)
@@ -43,21 +55,23 @@ namespace Jangine
 			{
 				auto &o = *output_;
 
+				std::string time = logTime ? DateTime::GetDateTime() : "";
+				time.append(" ");
 				if (level >= logLevel)
 				{
 					switch (category)
 					{
 					case LOG_INFO:
-						o << "[INFO] " << message << std::endl;
+						o << "[INFO] " << time << message << std::endl;
 						break;
 					case LOG_DEBUG:
-						o << "[DEBUG] " << message << std::endl;
+						o << "[DEBUG] " << time << message << std::endl;
 						break;
 					case LOG_ERROR:
-						o << "[ERROR] " << message << std::endl;
+						o << "[ERROR] " << time << message << std::endl;
 						break;
 					default:
-						o << "[Unknown Category???] " << message << std::endl;
+						o << "[Unknown Category???] " << time << message << std::endl;
 					}
 				}
 			}

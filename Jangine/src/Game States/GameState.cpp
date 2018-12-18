@@ -4,7 +4,7 @@ namespace Jangine
 {
 
 	GameState::GameState()
-		: m_window(Globals::getWindow()), m_renderer(SDL_GetRenderer(m_window)), m_quit(false)
+		: m_window(Globals::getWindow()), m_renderer(Globals::getRenderer()), m_quit(false)
 	{
 		if (m_renderer == nullptr)
 			Logger::LogError("Renderer was null!");

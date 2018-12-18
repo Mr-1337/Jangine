@@ -1,6 +1,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
-#include <map>
+#include <unordered_map>
 #include "../Core/Globals.h"
 #include "Texture.h"
 
@@ -20,10 +20,11 @@ namespace Jangine
 		TextureManager() = delete;
 		~TextureManager() = delete;
 
-		static Texture* GetTexture(const std::string& textureName);
+		static std::shared_ptr<Texture> GetTexture(const std::string& textureName);
+		static void FlushAtlas();
 
 	private:
-		static std::map<std::string, Texture*> m_textureAtlas;
+		static std::unordered_map<std::string, std::shared_ptr<Texture>> m_textureAtlas;
 		static SDL_Renderer* m_renderer;
 	};
 

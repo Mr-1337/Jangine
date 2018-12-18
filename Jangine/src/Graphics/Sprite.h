@@ -37,7 +37,7 @@ namespace Jangine
 	private:
 
 	protected:
-		Texture* m_texture;
+		std::shared_ptr<Texture> m_texture;
 		SDL_Renderer* m_renderer;
 		SDL_Rect m_dstRect;
 		SDL_RendererFlip m_flip;

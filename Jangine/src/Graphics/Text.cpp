@@ -25,7 +25,7 @@ namespace Jangine
 		m_dstRect.h = tempSurface->h;
 		m_dstRect.x = 0;
 		m_dstRect.y = 0;
-		m_texture = new Texture(tempSurface);
+		m_texture = std::make_shared<Texture>(tempSurface);
 		SDL_FreeSurface(tempSurface);
 	}
 
@@ -38,12 +38,11 @@ namespace Jangine
 
 	void Text::updateText(std::string text)
 	{
-		delete m_texture;
 		m_string = text;
 		tempSurface = TTF_RenderText_Blended(font, m_string.c_str(), fontColor);
 		m_dstRect.w = tempSurface->w;
 		m_dstRect.h = tempSurface->h;
-		m_texture = new Texture(tempSurface);
+		m_texture.reset(new Texture(tempSurface));
 		SDL_FreeSurface(tempSurface);
 	}
 

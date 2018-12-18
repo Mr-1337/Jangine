@@ -6,7 +6,7 @@ namespace Jangine
 {
 
 	Sprite::Sprite()
-		:m_renderer(SDL_GetRenderer(Globals::getWindow())), m_flip(SDL_FLIP_NONE), angle(0)
+		:m_renderer(Globals::getRenderer()), m_flip(SDL_FLIP_NONE), angle(0)
 	{
 		if (m_renderer != nullptr)
 		{
