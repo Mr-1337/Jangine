@@ -20,6 +20,13 @@ namespace Jangine
 		children.push_back(child);
 	}
 
+	void UIContainer::ProcessInput(SDL_Event& e)
+	{
+		for (auto& c : children)
+		{
+			c->ProcessInput(e);
+		}
+	}
 
 	void UIContainer::update()
 	{

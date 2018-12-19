@@ -7,7 +7,7 @@
 namespace Jangine
 {
 	class ButtonBase
-		:public UIElement, public IInputReceiver
+		:public UIElement
 	{
 	public:
 		ButtonBase();

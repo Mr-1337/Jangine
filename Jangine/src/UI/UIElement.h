@@ -1,13 +1,13 @@
 #pragma once
 #include <SDL.h>
 #include "../Graphics/Sprite.h"
-
+#include "../Input/IInputReceiver.h"
 
 
 namespace Jangine
 {
 	//Represents a singular UI element
-	class UIElement
+	class UIElement: public IInputReceiver
 	{
 	public:
 		UIElement();
@@ -18,6 +18,7 @@ namespace Jangine
 
 		virtual void setX(int X);
 		virtual void setY(int Y);
+		//virtual void ProcessInput(SDL_Event& e) = 0;
 
 	protected:
 		SDL_Renderer* m_renderer;

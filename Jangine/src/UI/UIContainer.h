@@ -4,12 +4,13 @@
 #include <SDL_mixer.h>
 #include <vector>
 #include <iterator>
+#include "../Input/IInputReceiver.h"
 #include "UIElement.h"
 
 namespace Jangine
 {
 
-	class UIContainer
+	class UIContainer: public IInputReceiver
 	{
 	public:
 		UIContainer();
@@ -19,6 +20,7 @@ namespace Jangine
 		virtual void draw();
 
 		void add(std::shared_ptr<UIElement> child);
+		void ProcessInput(SDL_Event& e) override;
 
 	protected:
 		SDL_Renderer* m_renderer;

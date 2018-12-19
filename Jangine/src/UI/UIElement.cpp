@@ -14,7 +14,6 @@ namespace Jangine
 	{
 	}
 
-
 	void UIElement::setX(int X)
 	{
 		x = X;

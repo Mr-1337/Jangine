@@ -3,7 +3,7 @@
 
 
 Enemy::Enemy(std::list<Shot*> &shots, SDL_Rect* player) :
-	m_shots(shots), player(player), m_renderer(SDL_GetRenderer(Globals::getWindow()))
+	m_shots(shots), player(player), m_renderer(Jangine::Globals::getRenderer())
 {
 	m_sprite.load("heavy.png");
 	top.load("heavytop.png");
