@@ -2,9 +2,12 @@
 
 #include <SDL.h>
 
-namespace Globals
+namespace Jangine
 {
-	void setWindow(SDL_Window* w);
-	SDL_Window* getWindow();
-	SDL_Renderer* getRenderer();
+	namespace Globals
+	{
+		void setWindow(SDL_Window* w);
+		SDL_Window* getWindow();
+		SDL_Renderer* getRenderer();
+	}
 }

@@ -6,7 +6,7 @@
 #include "../Core/Globals.h"
 #include "../Core/Platform.h"
 #include "../Util/Logger.h"
-
+#include "../Input/InputSource.h"
 
 namespace Jangine
 {
@@ -36,6 +36,8 @@ namespace Jangine
 		SDL_Event m_event;
 		SDL_Window* m_window;
 		SDL_Renderer* m_renderer;
+		InputSource m_input;
+
 	};
 
 }

@@ -19,27 +19,7 @@ namespace Jangine
 
 	void Slider::update()
 	{
-		int mx;
-
-		if ((SDL_GetMouseState(&mx, nullptr) & SDL_BUTTON_LEFT) && mouseInBounds())
-		{
-			auto srcRect = m_sprite->getRect();
-			if (mx > srcRect->x + srcRect->w - 10)
-			{
-				wedge.x = srcRect->x + srcRect->w - 10;
-			}
-			else if (mx < srcRect->x + 5)
-			{
-				wedge.x = srcRect->x;
-			}
-			else
-			{
-				wedge.x = mx - 5;
-				int volume = static_cast<int>(static_cast<float>(wedge.x - this->x) / (srcRect->w - 20) * 128.0f);
-				Logger::Log(std::to_string(volume));
-				Mix_VolumeMusic(volume);
-			}
-		}
+		
 	}
 
 	void Slider::draw()

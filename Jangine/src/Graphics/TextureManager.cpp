@@ -22,7 +22,7 @@ namespace Jangine
 		for(auto& t : m_textureAtlas)
 		{
 			if (t.second.use_count() == 1)
-				;
+				m_textureAtlas.erase(t.first);
 		}
 	}
 

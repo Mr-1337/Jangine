@@ -23,6 +23,7 @@ namespace Jangine
 			case SDL_QUIT:
 				m_quit = true;
 			}
+			m_input.PumpEvents(m_event);
 		}
 	}
 

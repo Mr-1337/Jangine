@@ -27,6 +27,7 @@ namespace Jangine
 		void SetLogTime(bool logtime);
 
 		void Log(const std::string& message);
+		void Log(int message);
 		void Log(const std::string& message, LogCategory category, LogLevel level);
 		void LogError(const std::string& message);
 

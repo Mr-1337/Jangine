@@ -44,6 +44,11 @@ namespace Jangine
 			Log(message, LOG_DEBUG, LEVEL_CRITICAL);
 		}
 
+		void Log(int message)
+		{
+			Log(std::to_string(message), LOG_DEBUG, LEVEL_CRITICAL);
+		}
+
 		void LogError(const std::string& message)
 		{
 			Log(message, LOG_ERROR, LEVEL_CRITICAL);

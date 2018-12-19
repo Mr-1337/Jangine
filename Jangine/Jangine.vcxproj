@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Input\IInputReceiver.cpp" />
     <ClCompile Include="src\Core\Globals.cpp" />
     <ClCompile Include="src\Graphics\Camera.cpp" />
     <ClCompile Include="src\Graphics\AnimatedSprite.cpp" />
+    <ClCompile Include="src\Input\InputSource.cpp" />
     <ClCompile Include="src\UI\ButtonBase.cpp" />
     <ClCompile Include="src\Core\GameEngine.cpp" />
     <ClCompile Include="src\Core\GameSettings.cpp" />
@@ -38,6 +40,8 @@
     <ClCompile Include="src\Graphics\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Input\IInputReceiver.h" />
+    <ClInclude Include="src\Input\InputSource.h" />
     <ClInclude Include="src\Core\Globals.h" />
     <ClInclude Include="src\Core\Platform.h" />
     <ClInclude Include="src\Graphics\Camera.h" />

@@ -4,8 +4,8 @@
 namespace Jangine
 {
 
-	ButtonBase::ButtonBase()
-		:m_mDown(false)
+	ButtonBase::ButtonBase() :
+		hover(false)
 	{
 		onClick = [] { Logger::LogError("HEY IDIOT THIS BUTTON ISN'T BOUND TO ANYTHING!"); };
 	}
@@ -15,7 +15,7 @@ namespace Jangine
 
 	}
 
-	bool ButtonBase::mouseInBounds()
+	bool ButtonBase::mouseInBounds(int mX, int mY)
 	{
 		SDL_Rect* sRect = m_sprite->getRect();
 		if ((mX >= sRect->x) && (mX <= sRect->x + sRect->w) && (mY >= sRect->y) && (mY <= sRect->y + sRect->h))
@@ -28,21 +28,31 @@ namespace Jangine
 		}
 	}
 
+	void ButtonBase::ProcessInput(SDL_Event& e)
+	{
+		if (e.type == SDL_MOUSEBUTTONDOWN)
+		{
+			if (e.button.button == SDL_BUTTON_LEFT)
+			{
+				if (mouseInBounds(e.button.x, e.button.y))
+				{
+					onClick();
+				}
+			}
+			
+		}
+		else if (e.type == SDL_MOUSEMOTION)
+		{
+			if (mouseInBounds(e.motion.x, e.motion.y))
+				hover = true;
+			else
+				hover = false;
+		}
+	}
+
 	void ButtonBase::update()
 	{
-		buttonMask = SDL_GetMouseState(&mX, &mY);
-
-		if (buttonMask == SDL_BUTTON_LMASK)
-		{
-			if (!m_mDown && mouseInBounds())
-			{
-				onClick();
-			}
-			m_mDown = true;
-		}
-		else
-		{
-			m_mDown = false;
-		}
+		if (hover)
+			onHover();
 	}
 }
